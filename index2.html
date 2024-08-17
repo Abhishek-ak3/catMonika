@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Effect Demo</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=BioRhyme+Expanded:wght@200;300;400;700;800&family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            /* height: 200vh; */
+            /* Adjust height according to your content */
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+
+        }
+
+        .biorhyme-expanded-extrabold {
+            font-family: "BioRhyme Expanded", serif;
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        .panel {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+        }
+
+        .panel1 {
+            background-color: black;
+            color: white;
+        }
+
+        .panel2 {
+            background-color: yellow;
+            display: flex;
+        }
+
+        .panel3 {
+            background-color: rgb(236, 161, 161);
+        }
+
+        .panel4 {
+            background-color: purple;
+        }
+
+        .panel6 {
+            background-color: purple;
+            /* background-color: rgb(rgb(137, 193, 230), rgb(190, 235, 190), rgb(196, 196, 234)); */
+        }
+
+
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+            max-width: 80%;
+            text-align: center;
+        }
+
+        .animate1 {
+            width: 100vw;
+            height: 100vh;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .animate {
+            animation-name: joco;
+            animation-duration: 6s;
+            animation-fill-mode: forwards;
+
+        }
+
+        @keyframes joco {
+            from {
+                width: 90vw;
+                height: 100vh;
+            }
+
+            to {
+                width: 1vw;
+                height: 1vh;
+            }
+        }
+
+        /* star blinking property */
+        .blinking {
+            animation-name: blinking;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes blinking {
+            from {
+                opacity: 0.5;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .crazy {
+            border: 2px solid green;
+
+        }
+
+        .animate1 button {
+            border: 2px solid green;
+            font-size: 50px;
+        }
+
+        .neonText {
+            animation: flicker 1.5s infinite alternate;
+            color: #fff;
+        }
+
+        .neonText2 {
+            animation: flickering 1.5s infinite alternate;
+            color: #f3cde9;
+            display: none;
+        }
+
+        h1 {
+            font-size: 4.2rem;
+        }
+
+        h2 {
+            font-size: 3.7rem;
+        }
+
+        /* Flickering animation */
+        @keyframes flicker {
+
+            0%,
+            18%,
+            22%,
+            25%,
+            53%,
+            57%,
+            100% {
+
+                text-shadow:
+                    0 0 4px #fff,
+                    0 0 11px #fff,
+                    0 0 19px #fff,
+                    0 0 40px #0fa,
+                    0 0 80px #0fa,
+                    0 0 90px #0fa,
+                    0 0 100px #0fa,
+                    0 0 150px #0fa;
+
+            }
+
+            20%,
+            24%,
+            55% {
+                text-shadow: none;
+            }
+        }
+
+        /* flickering animation */
+        @keyframes flickering {
+
+            0%,
+            18%,
+            22%,
+            25%,
+            53%,
+            57%,
+            100% {
+
+                text-shadow:
+                    0 0 4px #fff,
+                    0 0 11px #fff,
+                    0 0 19px #dbe9a0,
+                    0 0 40px #0fa,
+                    0 0 80px rgb(209, 169, 218),
+                    0 0 90px #0fa,
+                    0 0 100px #0fa,
+                    0 0 150px rgb(175, 217, 225);
+
+            }
+
+            20%,
+            24%,
+            55% {
+                text-shadow: none;
+            }
+        }
+
+        .panel2 img {
+            height: 100px;
+        }
+
+        .flexpoint {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .side-image {
+            display: flex;
+            justify-content: space-between;
+            width: 60vw;
+            /* border: 2px solid blue; */
+        }
+
+        .side-image .right {
+            border: 2px solid red;
+            height: 55vh;
+            width: 23vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+
+        .right-inside {
+            border: 2px solid purple;
+            border: 2px solid purple;
+            height: 41vh;
+            width: 30vw;
+            background-color: black;
+            background-color: black;
+        }
+
+        .panel4 {
+            /* background: linear-gradient(to top, #c38fe1 0%, #ce88b7 100%); */
+            margin: auto;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow: auto;
+            background: linear-gradient(315deg, rgba(101, 0, 94, 1) 3%, rgba(60, 132, 206, 1) 38%, rgba(48, 238, 226, 1) 68%, rgb(208 185 185) 98%);
+            animation: gradient 15s ease infinite;
+            background-size: 400% 400%;
+            background-attachment: fixed;
+            border: 2px solid blue;
+            text-align: center;
+
+        }
+
+        body {
+            background: black;
+        }
+
+        .box {
+            height: 400px;
+            /* adjust to control the size  */
+            aspect-ratio: 1/cos(30deg);
+            clip-path: polygon(50% -50%, 100% 50%, 50% 150%, 0 50%);
+            background: pink;
+        }
+
+        @keyframes twinkle {
+            0% {
+                transform: scale(1, 1);
+                background: rgba(255, 255, 255, 0.0);
+                animation-timing-function: ease-in;
+            }
+
+            60% {
+                transform: scale(0.8, 0.8);
+                background: rgba(255, 255, 255, 1);
+                animation-timing-function: ease-out;
+            }
+
+            80% {
+                background: rgba(255, 255, 255, 0.00);
+                transform: scale(1, 1);
+            }
+
+            100% {
+                background: rgba(255, 255, 255, 0.0);
+                transform: scale(1, 1);
+            }
+        }
+
+        .box {
+            border: 3px solid purple;
+
+        }
+
+        .dot {
+            height: 400px;
+            width: 400px;
+            background-color: palevioletred;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .four-pointed-star {
+            position: relative;
+            /* margin: 1em auto; */
+            width: 1em;
+            font-size: 12em;
+            animation: rotate 5s linear infinite;
+        }
+
+        .four-pointed-star:before {
+            content: "";
+            position: absolute;
+            background: rgb(198, 137, 189);
+            width: 50px;
+            height: 50px;
+            transform: rotate(-45deg) skewX(22.5deg) skewY(22.5deg);
+        }
+
+        .four-pointed-star:after {
+            content: "";
+            position: absolute;
+            background: rgb(198, 137, 189);
+            width: 50px;
+            height: 50px;
+            transform: rotate(45deg) skewX(22.5deg) skewY(22.5deg);
+        }
+
+        .blink-star {
+            width: 80vw;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .wave:nth-of-type(2) {
+            bottom: -1.25em;
+            animation: wave 18s linear reverse infinite;
+            opacity: 0.8;
+        }
+
+        .wave:nth-of-type(3) {
+            bottom: -2.5em;
+            animation: wave 20s -1s reverse infinite;
+            opacity: 0.9;
+        }
+
+        @keyframes wave {
+            2% {
+                transform: translateX(1);
+            }
+
+            25% {
+                transform: translateX(-25%);
+            }
+
+            50% {
+                transform: translateX(-50%);
+            }
+
+            75% {
+                transform: translateX(-25%);
+            }
+
+            100% {
+                transform: translateX(1);
+            }
+        }
+
+        .three-pointed-star {
+            position: relative;
+            /* margin: 1em auto; */
+            width: 1em;
+            font-size: 12em;
+            /* animation: rotate 5s linear infinite; */
+        }
+
+        .three-pointed-star:before {
+            content: "";
+            position: absolute;
+            background: rgb(198, 137, 189);
+            width: 50px;
+            height: 50px;
+            transform: rotate(-45deg) skewX(22.5deg) skewY(22.5deg);
+            animation: changeSize 1s infinite;
+        }
+
+        .three-pointed-star:after {
+            content: "";
+            position: absolute;
+            background: rgb(198, 137, 189);
+            width: 50px;
+            height: 50px;
+            transform: rotate(45deg) skewX(22.5deg) skewY(22.5deg);
+            animation: changeSize 1s infinite;
+        }
+
+        @keyframes changeSize {
+            from {
+                width: 30px;
+                height: 30px;
+            }
+
+            to {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        .panel.panel5 .three-pointed-star:nth-child(2) {
+            right: 150px;
+            bottom: 221px;
+        }
+
+        /* Target the second .three-pointed-star */
+        .panel.panel5 .three-pointed-star:nth-child(3) {
+            left: 281px;
+            bottom: 218px;
+        }
+
+        .panel.panel5 .three-pointed-star:nth-child(4) {
+            left: 78px;
+            bottom: 438px;
+        }
+
+        .panel.panel5 .three-pointed-star:nth-child(5) {
+            left: 60px;
+            bottom: 8px;
+        }
+
+        .texting {
+            border: 2px solid orange;
+            height: 150px;
+        }
+
+        .flexing {
+            background-color: rgb(234, 204, 209);
+            display: flex;
+            text-align: center;
+            flex-direction: row;
+        }
+
+        .slide-in {
+            transform: translateX(-100%);
+            animation: slideIn 1s forwards;
+            /* Animation name, duration, and fill-mode */
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .slide-in {
+            transform: translateX(-100%);
+            /* Initial state */
+            animation: slideIn 4s forwards;
+            /* Animation with combined effects */
+            width: 400px;
+            height: 266px;
+            /* No need for transition here, as animation covers it */
+        }
+
+        .slide-in2 {
+            transform: translateX(300%);
+            /* Initial state */
+            animation: slideIn2 4s forwards;
+            /* Animation with combined effects */
+            width: 400px;
+            animation-delay: 3s;
+            height: 266px;
+            /* No need for transition here, as animation covers it */
+        }
+
+        .slide-in3 {
+            transform: translateX(-240%);
+            /* Initial state */
+            animation: slideIn3 4s forwards;
+            /* Animation with combined effects */
+            width: 400px;
+
+            animation-delay: 6s;
+            height: 266px;
+            /* No need for transition here, as animation covers it */
+        }
+
+        .slide-in4 {
+            transform: translateX(-240%);
+            /* Initial state */
+            animation: slideIn4 4s forwards;
+            /* Animation with combined effects */
+            width: 400px;
+            animation-delay: 11s;
+            height: 266px;
+
+            /* No need for transition here, as animation covers it */
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%) rotate(0deg);
+
+            }
+
+            to {
+                transform: translateX(-90%) translateY(55%) rotate(-24deg);
+
+            }
+        }
+
+        @keyframes slideIn2 {
+            from {
+                transform: translateX(-300%) rotate(0deg);
+
+            }
+
+            to {
+                transform: translateX(80%) rotate(20deg);
+
+            }
+        }
+
+        @keyframes slideIn3 {
+            from {
+                transform: translateY(-500%) rotate(0deg);
+                display: none;
+            }
+
+            to {
+                transform: translateX(-27%) translateY(-40%) rotate(-20deg);
+                opacity: 1;
+                display: block;
+            }
+        }
+
+        @keyframes slideIn4 {
+            from {
+                /* transform: translateX(-100%) rotate(0deg); */
+                transform: translateX(-100%) rotate(0deg);
+                display: none;
+            }
+
+            to {
+                transform: translateX(-40%) translateY(-86%) rotate(-15deg);
+                display: block;
+            }
+        }
+
+        #monimg {
+            height: 300px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .dot video {
+            height: 347px;
+            margin: 27px 0px;
+            border-radius: 300px;
+        }
+
+        .texts {
+            font-size: 28px;
+            color: yellow;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animate1">
+        <button id="animationstart">Click Me , here</button>
+    </div>
+    <div class="container slider">
+        <!-- auto scrolling space -->
+
+        <section class="panel panel1" data-audio="./songs/6.mp3">
+
+            <h1 class="biorhyme-expanded-extrabold neonText">READY</h1>
+            <h2 class="neonText2">SET , GO </h2>
+            <!-- to consider giving the style according to the canva ready layout -->
+
+        </section>
+        <section class="panel panel2" data-audio="./songs/6.mp3">
+            <div class="flexpoint">
+                <h1>This Project is for </h1><img
+                    src="https://cdn.tatyanadeniz.com/wp-content/uploads/2020/05/kawaii-kitty-tutorial-cover.jpg"
+                    alt="">
+            </div>
+            <h1>Monika !!!</h1>
+        </section>
+        <section class="panel panel3" data-audio="./songs/6.mp3">
+            <!-- <h1>Section 3</h1> -->
+            <h2 class="texts">Happy HAppy Monika!😺</h2>
+            <div class="side-image">
+                <div class="left">
+                    <video width="640" height="360">
+                        <source src="./happycat.mp4" type="video/mp4">
+
+                    </video>
+                </div>
+                <div class="right">
+                    <div class="right-inside" id="monimg">
+                        <img src="./monikaofc.jpg" alt="">
+                        <img src="./monikaofc2.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="panel panel4" data-audio="./songs/6.mp3">
+            <h1>Monika AI Version!!!😹</h1>
+            <div class="blink-star">
+                <div class="four-pointed-star"></div>
+                <div class="four-pointed-star"></div>
+            </div>
+            <div class="box">
+                <video width="400" loop autoplay>
+                    <source src="./vd1.mp4" type="video/mp4">
+
+
+                </video>
+            </div>
+            <div class="blink-star">
+                <div class="four-pointed-star"></div>
+                <div class="four-pointed-star"></div>
+
+            </div>
+        </section>
+        <section class="panel panel5 flexing" data-audio="./songs/6.mp3">
+            <div class="one">
+                <span class="dot">
+                    <video width="400" loop autoplay>
+                        <source src="./vd2.mp4" type="video/mp4">
+
+                    </video>
+                </span>
+                <div class="three-pointed-star blinking"></div>
+                <div class="three-pointed-star blinking"></div>
+                <div class="three-pointed-star blinking"></div>
+                <div class="three-pointed-star blinking"></div>
+            </div>
+            <aside class="texting">
+                <h2>Monika, is this you?😂</h2>
+
+            </aside>
+        </section>
+        <section class="panel panel6" id="slide4" data-audio="./songs/6.mp3">
+            <!-- <h1>Section 3</h1> -->
+            <!-- to load the image by floating and camera click sound  -->
+            <img src="./fn.jpg" alt="Your Image1" class="slide-in">
+            <img src="./ofc1.jpg" alt="Your Image2" class="slide-in2">
+            <img src="./ofc2.jpg" alt="Your Image3" class="slide-in3">
+
+        </section>
+
+    </div>
+
+    <script>
+        document.getElementById("animationstart").addEventListener('click', function () {
+            var anmbox = document.querySelector('.animate1');
+            anmbox.classList.add('animate')
+            const texts = document.getElementById('animationstart');
+            texts.style.display = 'none';
+
+
+            setTimeout(function () {
+
+                anmbox.style.display = 'none'
+            }, 6000);
+        })
+
+        const panels = document.querySelectorAll('.panel');
+
+        function changeBackground() {
+            panels.forEach(panel => {
+                const rect = panel.getBoundingClientRect();
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    document.body.style.backgroundColor = panel.style.backgroundColor;
+                }
+            });
+        }
+        setTimeout(() => {
+            document.querySelector('.neonText2').style.display = 'block'
+        }, 5000);
+
+
+        window.addEventListener('scroll', changeBackground);
+        // slider animation 
+        // const slider = document.querySelector('.slider');
+        // let currentAudio = null;
+        // function activatemusic(e) {
+        //     const items=document.querySelectorAll('.panel')
+        }
+    </script>
+</body>
+
+</html>
